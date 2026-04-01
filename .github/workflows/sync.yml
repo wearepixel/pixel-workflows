@@ -3,6 +3,8 @@ name: Sync Files to Client Repos
 on:
   push:
     branches: [master]
+  schedule:
+    - cron: '0 1 * * *'  # daily at 1am UTC
   workflow_dispatch:
 
 jobs:

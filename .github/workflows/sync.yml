@@ -17,5 +17,5 @@ jobs:
         with:
           GH_PAT: ${{ secrets.GH_PAT }}
           CONFIG_PATH: .sync.yml
-          COMMIT_MESSAGE: "chore: sync files from wearepixel/pixel-workflows [ci skip]"
+          COMMIT_PREFIX: "chore: sync files from wearepixel/pixel-workflows -"
           PR_LABELS: "sync"

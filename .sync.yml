@@ -3,6 +3,8 @@ group:
       wearepixel/rethread
       wearepixel/paper
       nourishd/nourishd
+      wearepixel/astrid
+      pulsewise/pulsewise
     files:
       - source: files/.github/dependabot.yml
         dest: .github/dependabot.yml

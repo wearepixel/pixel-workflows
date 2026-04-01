@@ -8,7 +8,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  sync:
+  sync-wearepixel:
+    name: Sync to wearepixel repos
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -20,12 +21,35 @@ jobs:
         with:
           app-id: ${{ secrets.APP_ID }}
           private-key: ${{ secrets.APP_PRIVATE_KEY }}
-          owner: ${{ github.repository_owner }}
+          owner: wearepixel
 
       - name: Run file sync
         uses: BetaHuhn/repo-file-sync-action@v1
         with:
           GH_INSTALLATION_TOKEN: ${{ steps.app-token.outputs.token }}
-          CONFIG_PATH: .sync.yml
+          CONFIG_PATH: .sync-wearepixel.yml
+          COMMIT_PREFIX: "chore: sync files from wearepixel/pixel-workflows -"
+          SKIP_PR: true
+
+  sync-nourishd:
+    name: Sync to nourishd repos
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Generate app token
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          owner: nourishd
+
+      - name: Run file sync
+        uses: BetaHuhn/repo-file-sync-action@v1
+        with:
+          GH_INSTALLATION_TOKEN: ${{ steps.app-token.outputs.token }}
+          CONFIG_PATH: .sync-nourishd.yml
           COMMIT_PREFIX: "chore: sync files from wearepixel/pixel-workflows -"
           SKIP_PR: true

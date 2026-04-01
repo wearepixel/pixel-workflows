@@ -2,7 +2,7 @@ name: Sync Files to Client Repos
 
 on:
   push:
-    branches: [main]
+    branches: [master]
   workflow_dispatch:
 
 jobs:

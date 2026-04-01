@@ -26,4 +26,4 @@ jobs:
           GH_INSTALLATION_TOKEN: ${{ steps.app-token.outputs.token }}
           CONFIG_PATH: .sync.yml
           COMMIT_PREFIX: "chore: sync files from wearepixel/pixel-workflows -"
-          PR_LABELS: "sync"
+          SKIP_PR: true

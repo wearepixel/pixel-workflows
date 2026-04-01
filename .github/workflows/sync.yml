@@ -1,0 +1,21 @@
+name: Sync Files to Client Repos
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run file sync
+        uses: jacobtomlinson/repo-file-sync-action@v3
+        with:
+          GH_PAT: ${{ secrets.GH_PAT }}
+          CONFIG_PATH: .sync.yml
+          COMMIT_MESSAGE: "chore: sync files from wearepixel/pixel-workflows [ci skip]"
+          PR_LABELS: "sync"

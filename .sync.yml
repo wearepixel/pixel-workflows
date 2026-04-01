@@ -1,0 +1,14 @@
+group:
+  - repos: |
+      wearepixel/rethread
+      wearepixel/paper
+      nourishd/nourishd
+    files:
+      - source: files/.github/dependabot.yml
+        dest: .github/dependabot.yml
+      - source: files/.github/workflows/dependabot-auto-merge.yml
+        dest: .github/workflows/dependabot-auto-merge.yml
+      - source: files/.editorconfig
+        dest: .editorconfig
+      - source: files/pint.json
+        dest: pint.json

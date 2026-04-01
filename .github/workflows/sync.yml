@@ -31,6 +31,29 @@ jobs:
           COMMIT_PREFIX: "chore: sync files from wearepixel/pixel-workflows -"
           SKIP_PR: true
 
+  sync-pulsewise:
+    name: Sync to pulsewise repos
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Generate app token
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          owner: pulsewise
+
+      - name: Run file sync
+        uses: BetaHuhn/repo-file-sync-action@v1
+        with:
+          GH_INSTALLATION_TOKEN: ${{ steps.app-token.outputs.token }}
+          CONFIG_PATH: .sync-pulsewise.yml
+          COMMIT_PREFIX: "chore: sync files from wearepixel/pixel-workflows -"
+          SKIP_PR: true
+
   sync-nourishd:
     name: Sync to nourishd repos
     runs-on: ubuntu-latest

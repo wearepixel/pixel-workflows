@@ -6,8 +6,6 @@ group:
         dest: .github/dependabot.yml
       - source: files/.github/workflows/dependabot-auto-merge.yml
         dest: .github/workflows/dependabot-auto-merge.yml
-      - source: files/.github/workflows/composer-audit.yml
-        dest: .github/workflows/composer-audit.yml
       - source: files/.editorconfig
         dest: .editorconfig
       - source: files/.gitattributes

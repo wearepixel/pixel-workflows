@@ -1,8 +1,6 @@
 group:
   - repos: |
-      wearepixel/rethread
-      wearepixel/paper
-      wearepixel/astrid
+      pulsewise/pulsewise
     files:
       - source: files/.github/dependabot.yml
         dest: .github/dependabot.yml

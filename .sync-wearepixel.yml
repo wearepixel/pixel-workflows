@@ -3,6 +3,7 @@ group:
       wearepixel/rethread
       wearepixel/paper
       wearepixel/astrid
+      wearepixel/budget
     files:
       - source: files/.github/dependabot.yml
         dest: .github/dependabot.yml
